@@ -12,4 +12,4 @@ class UserTestCase(TestCase):
         u.set_password(password)
         u.save()
         self.assertEqual(u.username, username)
-        self.assertFalse(u.check_password(password))
+        self.assertTrue(u.check_password(password))
