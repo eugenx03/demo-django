@@ -35,7 +35,7 @@ jobs:
       - name: Lint with flake8
         run: |
           pip install flake8
-          flake8 .
+          flake8 . --max-line-length=127
 
       - name: Check with black 
         uses: piotrpawlaczek/python-blacken@release/stable
