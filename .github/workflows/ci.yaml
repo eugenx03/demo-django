@@ -3,7 +3,7 @@ name: Django Demo Github Actions
 on: [push,pull_request]
 
 jobs:
-  build:
+  health-check-job:
     runs-on: ubuntu-latest
   
     services:
@@ -33,3 +33,10 @@ jobs:
             pip install -r requirements.txt
 
   package:
+    runs-on: ubuntu-latest
+    needs: [health-check-job]
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v3
+
+
