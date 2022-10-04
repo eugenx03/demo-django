@@ -40,6 +40,11 @@ jobs:
       - name: Check with black 
         uses: piotrpawlaczek/python-blacken@release/stable
 
+      - name: Sort imports
+        run: |
+          pip install isort
+          isort . --check-only -v
+
       - name: Run migrations
         run: |
           python manage.py migrate
